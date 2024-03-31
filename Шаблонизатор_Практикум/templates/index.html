@@ -1,0 +1,157 @@
+{# 1 #}
+{% set x, y = 3, 2 %}
+{{ (x ** 2 + (y - 6) / 2.1 * 1.2) | round(2) }}
+
+<hr>
+
+{# 2 #}
+{% set a, b = 5, 1 %}
+{% set c = a - b %}
+{{ '{:.1%}'.format(c // 3) }}
+
+<hr>
+
+{# 3 #}
+{% set a, b = 23, 60 %}
+{% if b >= 60 %}
+	{% set a, b = a + b // 60, b % 60 %}
+{% endif %}
+{% if a >= 24 %}
+	{% set a = a % 24 %}
+{% endif %}
+
+{% if b == 0 %}
+	Ровно {{ a }}
+{% elif  b % 30 == 0 %}
+	Половина {{ a + 1 }}
+{% elif  b % 15 == 0 %}
+	Без пятнадцати  {{ a + 1 }}
+{% elif  b < 15 == 0 %}
+	Начало  {{ a + 1 }}
+{% else %}
+	{{ a }} час(а/ов) {{ b }} минут(а/ы)
+{% endif %}
+
+<hr>
+
+{# 4 #}
+{% set a, b = 1, 1 %}
+{% set c = '/' %}
+{% if 'кот' in c and b == 0 %}
+	На 0 делить можно, мяу
+{% elif 'кот' == c %}
+	Шрёдингера
+{% elif 'кот' in c %}
+	Очевидный подсчет
+{% else %}
+	{% if c == '/' and b == 0 %}
+		Ошибка.
+	{% else %}
+		{{ a }} {{ c }} {{ b }}
+	{% endif %}
+{% endif %}
+
+<hr>
+
+{# 5 #}
+{% set count = [0] %}
+<table border=3>	
+	{% for i in ['не', 'устану', 'уставать'] %}
+		<tr>
+			<td>{{ loop.index }}</td>
+			<td>{{ i }}</td>
+			{% if i in 'неустануставать' %}
+				  {% if count.append(count.pop() + 1) %}{% endif %}
+			{% endif %}
+		</tr>
+	{% else %}
+		Ты настолько устал?
+	{% endfor %}	
+</table>
+{% if count[0] == 3 %}
+	Как девиз жизни
+{% endif %}
+
+<hr>
+
+{# 6 #}
+{# Death #}
+{% set size, matrix = 3, [] %}
+{% for i in range(0, size) %}
+	{% set list = [] %}
+	{% for j in range(0, size) %}
+		{% if i == j %}
+			{{ list.append(1) }}
+		{% else %}
+			{{ list.append(0) }}
+		{% endif %}
+	{% endfor %}
+	{{ matrix.append(list) }}
+{% endfor %}
+
+{% for i in range(0, size) %}
+	<p>
+		{% for j in range(0, size) %}
+			{{ matrix[i][j] }}
+		{% endfor %}
+	</p>
+{% endfor %}
+{# End death #}
+
+{# Hard #}
+{% set size, matrix = 3, [] %}
+{% for i in range(0, size) %}
+	{% set list = [] %}
+	{% for j in range(1, size + 1) %}
+		{{ list.append(j + (i * size)) }}
+	{% endfor %}
+	{{ matrix.append(list) }}
+{% endfor %}
+
+{% for i in range(0, size) %}
+	<p>
+		{% for j in range(0, size) %}
+			{{ matrix[i][j] }}
+		{% endfor %}
+	</p>
+{% endfor %}
+{# End hard #}
+
+{# Easy #}
+{% set size = 3 %}
+{% for i in range(0, size) %}
+	<p>
+	{% for j in range(1, size + 1) %}
+		{{ j + (i * size) }}
+	{% endfor %}
+	<p>
+{% endfor %}
+
+<hr>
+
+{# 7 #}
+{% macro to_be_or_not_to_be() %}
+	{% set x = range(0, 2) | random %}
+	{% if x == 1 %}
+		Быть
+		{{ to_be_or_not_to_be() }}
+	{% else %}
+		Не быть
+	{% endif %}
+{% endmacro %}
+
+{{ to_be_or_not_to_be() }}
+
+<hr>
+
+{# 8 #}
+{% set sum_e = [0] %}
+{% macro get_equivalence_mass_and_energy() %}
+	{% for value in varargs %}
+		{% if sum_e.append(sum_e.pop() + value['m'] * value['c'] ** 2) %}{% endif %}
+	{% endfor %}
+	{{ sum_e[0] }}
+{% endmacro %}
+
+{% set a, b, c = {'m': 5, 'c': 3}, {'m': 2, 'c': 7}, {'m': 3, 'c': 1}  %}
+{{ get_equivalence_mass_and_energy(a, b, c) }}
