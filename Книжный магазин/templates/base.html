@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            {% if title %}
+                {{ title }}
+            {% else %}
+                Itgenio Book Shop
+            {% endif %}
+        {% endblock %}
+    </title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    {% block menu %}
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">Главная</a></li>
+                <li><a href="{{ url_for('books') }}">Книги</a></li>
+                <li><a href="{{ url_for('about') }}">О сайте</a></li>
+            </ul>
+        </nav>
+    {% endblock %}
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block cookie %}
+        <div class="cookie_notice">
+            Этот сайт использует файлы cookies и сервисы сбора технических данных посетителей (данные об IP-адресе, местоположении и др.) для обеспечения работоспособности и улучшения качества обслуживания. Продолжая использовать наш сайт, вы автоматически соглашаетесь с использованием данных технологий.
+            <div>
+                <a class="cookie_btn" id="cookie_close" href="#close">Согласиться</a>
+                <a class="cookie_btn" href="#politika">Политика конфиденциальности</a>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block scripts %}
+        <script src="{{ url_for('static', filename='js/cookie.js') }}"></script>
+        <script type="text/javascript">
+
+            let cookiecook = getCookie("cookiecook"),
+            cookiewin = document.getElementsByClassName('cookie_notice')[0];
+
+            if (cookiecook != "no") {
+
+                cookiewin.style.display="block";
+
+                document.getElementById("cookie_close").addEventListener("click", function(){
+                    cookiewin.style.display="none";
+
+                    let date = new Date;
+                    date.setMinutes(date.getMinutes() + 5);
+                    document.cookie = "cookiecook=no; path=/; expires=" + date.toUTCString();
+                });
+            }
+        </script>
+    {% endblock %}
+</body>
+</html>

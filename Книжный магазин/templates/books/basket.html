@@ -1,0 +1,31 @@
+<div class="shopping-cart">
+    <div class="title">
+        Книжная корзина
+    </div>
+
+    {% for book in books %}
+        <div class="item">
+            <div class="image">
+                <img src="{{ book.cover }}" alt="" height="70px">
+            </div>
+
+            <div class="description">
+                <span>{{ book.name }}</span>
+                <span>{{ book.author }}</span>
+            </div>
+
+            <div class="quantity">
+                <button class="plus-btn" type="button" name="button">
+                  +
+                </button>
+                <input type="text" name="name" value="1">
+                <button class="minus-btn" type="button" name="button">
+                  -
+                </button>
+            </div>
+
+            <div class="total-price">${{ book.price }}</div>
+            <div class="details"><a class="btn" href="{{ url_for('book', id=book.id) }}">Подробнее</a></div>
+        </div>
+    {% endfor %}
+</div>

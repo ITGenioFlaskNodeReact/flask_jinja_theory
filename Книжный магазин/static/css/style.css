@@ -1,0 +1,368 @@
+.logo {
+    position: relative;
+    width: 10%;
+    display: flex;
+    margin: auto;
+}
+
+.content {
+    margin: auto;
+    padding: 1.9em;
+    width: 40%;
+    border: 3px solid rgba(255,255,255,0);
+    border-top: 5px solid rgba(255,255,255,0);
+    box-shadow: 6px 6px 9px rgba(0,0,0,.1);
+    text-indent: 50px;
+    text-align: justify;
+    letter-spacing: 3px;
+}
+
+nav {
+    padding-bottom: 0.3em;
+}
+
+nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #0aad05;
+}
+
+nav > ul > li a {
+  display: block;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+nav > ul > li a:hover {
+  background-color:#7EC855;
+  color: #000;
+  border: 1px solid black;
+}
+
+.cookie_notice {
+    display: none;
+    position: fixed;
+    z-index: 9999999;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 15px;
+    font-family: Verdana, sans-serif;
+    color: #FFF;
+    background: #0aad05;
+    padding: 10px 20px;
+    border-top: 4px solid #BFE2FF;
+}
+
+.cookie_btn {
+    display: inline-block;
+    margin: 10px 6px 4px 6px;
+    text-decoration: none;
+    position: relative;
+    font-size: 13px;
+    padding: 4px 12px;
+    color: #FFF;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #0aad05;
+    border: 2px solid #BFE2FF;
+}
+
+.cookie_btn:hover {
+    color: #FFF;
+}
+
+.cookie_btn:after,
+.cookie_btn:before {
+    position: absolute;
+    height: 2px;
+    left: 50%;
+    background: #FFF;
+    bottom: -6px;
+    content: "";
+    transition: all 280ms ease-in-out;
+    width: 0;
+}
+
+.cookie_btn:before {
+    top: -6px;
+}
+
+.cookie_btn:hover:after,
+.cookie_btn:hover:before {
+    width: 100%;
+    left: 0;
+}
+
+.btn {
+    display: block;
+    height: 2em;
+    background: #0aad05;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: #7EC855;
+  font-family: 'Roboto', sans-serif;
+}
+
+.shopping-cart {
+  width: 750px;
+  height: 423px;
+  margin: 80px auto;
+  background: #FFFFFF;
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.10);
+  border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  height: 60px;
+  border-bottom: 1px solid #E1E8EE;
+  padding: 20px 30px;
+  color: #5E6977;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.item {
+  padding: 20px 30px;
+  height: 120px;
+  display: flex;
+}
+
+.item:nth-child(3) {
+  border-top:  1px solid #E1E8EE;
+  border-bottom:  1px solid #E1E8EE;
+}
+
+.buttons {
+  position: relative;
+  padding-top: 30px;
+  margin-right: 60px;
+}
+.delete-btn,
+.like-btn {
+  display: inline-block;
+  Cursor: pointer;
+}
+.delete-btn {
+  width: 18px;
+  height: 17px;
+  background: url("delete-icn.svg") no-repeat center;
+}
+
+.like-btn {
+  position: absolute;
+  top: 9px;
+  left: 15px;
+  background: url('img/heart.png');
+  width: 60px;
+  height: 60px;
+  background-size: 2900%;
+  background-repeat: no-repeat;
+}
+
+.is-active {
+  animation-name: animate;
+  animation-duration: .8s;
+  animation-iteration-count: 1;
+  animation-timing-function: steps(28);
+  animation-fill-mode: forwards;
+}
+
+@keyframes animate {
+  0%   { background-position: left;  }
+  50%  { background-position: right; }
+  100% { background-position: right; }
+}
+
+.image {
+  margin-right: 50px;
+}
+
+.description {
+  padding-top: 10px;
+  margin-right: 60px;
+  width: 115px;
+}
+
+.description span {
+  display: block;
+  font-size: 14px;
+  color: #43484D;
+  font-weight: 400;
+}
+
+.description span:first-child {
+  margin-bottom: 5px;
+}
+.description span:last-child {
+  font-weight: 300;
+  margin-top: 8px;
+  color: #86939E;
+}
+
+.quantity {
+  padding-top: 20px;
+  margin-right: 60px;
+}
+.quantity input {
+  -webkit-appearance: none;
+  border: none;
+  text-align: center;
+  width: 32px;
+  font-size: 16px;
+  color: #43484D;
+  font-weight: 300;
+}
+
+button[class*=btn] {
+  width: 30px;
+  height: 30px;
+  background-color: #E1E8EE;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+.minus-btn img {
+  margin-bottom: 3px;
+}
+.plus-btn img {
+  margin-top: 2px;
+}
+
+button:focus,
+input:focus {
+  outline:0;
+}
+
+.total-price {
+  width: 83px;
+  padding-top: 27px;
+  text-align: center;
+  font-size: 16px;
+  color: #43484D;
+  font-weight: 300;
+}
+
+@media (max-width: 800px) {
+  .shopping-cart {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  .item {
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .image img {
+    width: 50%;
+  }
+  .image,
+  .quantity,
+  .description {
+    width: 100%;
+    text-align: center;
+    margin: 6px 0;
+  }
+  .buttons {
+    margin-right: 20px;
+  }
+}
+
+.details {
+    margin: 20px auto;
+}
+
+.product-inner {
+   width: 350px;
+   margin: 0 auto;
+   background: white;
+   text-align: center;
+   border-bottom: 2px solid #ebebec;
+   transition: .2s linear;
+}
+.product-inner:hover {
+   border-color: #bca480;
+}
+.product-wrap {
+   position: relative;
+   overflow: hidden;
+   margin-bottom: 15px;
+}
+.product-wrap img {
+   display: block;
+   width: 100%;
+}
+.actions {
+   position: absolute;
+   left: 0;
+   bottom: -20%;
+   width: 100%;
+   background: rgba(59, 62, 67, 0.75);
+   transition: .3s linear;
+}
+.product-inner:hover .actions {
+   bottom: 0;
+}
+.actions a {
+   text-decoration: none;
+   float: left;
+   width: 33.33333333333333%;
+   color: white;
+   padding: 15px 0;
+   transition: .2s linear;
+}
+.actions a:hover {
+   background: rgba(59, 62, 67, 0.85);
+}
+.actions a:before {
+   font-family: "FontAwesome";
+}
+.add-to-cart:before {
+   content: "\271A";
+}
+.quickview:before {
+   content: "\270E";
+}
+.wishlist:before {
+   content: "\2606";
+}
+.product-info {
+   padding-bottom: 10px;
+   font-family: 'Noto Sans', sans-serif;
+}
+.product-title {
+   margin: 0 0 10px 0;
+   font-family: 'Noto Sans', sans-serif;
+}
+.product-title a {
+   text-decoration: none;
+   color: #1e1e1e;
+   font-weight: 400;
+   font-size: 16px;
+}
+.price {
+   font-weight: bold;
+   color: #bca480;
+}

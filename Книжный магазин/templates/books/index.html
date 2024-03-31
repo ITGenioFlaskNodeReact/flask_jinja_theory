@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'books/basket.html' %}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript">
+      $('.minus-btn').on('click', function(e) {
+    		e.preventDefault();
+    		var $this = $(this);
+    		var $input = $this.closest('div').find('input');
+    		var value = parseInt($input.val());
+
+    		var $total = $this.parent('div').parent('div').find('.total-price');
+    		var price = parseFloat($total.text().slice(1));
+
+            price = price / value;
+
+    		price = price.toFixed(2);
+
+    		if (value > 1) {
+    			value = value - 1;
+      		    $total.text('$' + price * value);
+    		} else {
+    			value = 0;
+    		}
+
+            $input.val(value);
+
+    	});
+
+    	$('.plus-btn').on('click', function(e) {
+    		e.preventDefault();
+    		var $this = $(this);
+    		var $input = $this.closest('div').find('input');
+    		var value = parseInt($input.val());
+
+            var $total = $this.parent('div').parent('div').find('.total-price');
+    		var price = parseFloat($total.text().slice(1));
+
+            if (value == 0) {
+              price = price / 1;
+            } else {
+              price = price / value;
+            }
+
+    		price = price.toFixed(2);
+    		if (value < 100) {
+      		    value = value + 1;
+    		} else {
+    			value = 100;
+    		}
+
+      		$total.text('$' + price * value);
+    		$input.val(value);
+    	});
+
+      $('.like-btn').on('click', function() {
+        $(this).toggleClass('is-active');
+      });
+    </script>
+{% endblock %}

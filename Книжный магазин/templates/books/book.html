@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="product-inner">
+      <div class="product-wrap">
+        <img src="{{ book.cover }}">
+        <div class="actions">
+          <a href="" class="add-to-cart"></a>
+          <a href="" class="quickview"></a>
+          <a href="" class="wishlist"></a>
+        </div>
+      </div>
+      <div class="product-info">
+        <h3 class="product-title"><a href="">{{ book.name }}</a></h3>
+        <p class="product-title">{{ book.description }}</p>
+        <span class="price">${{ book.price }}</span>
+      </div>
+    </div>
+{% endblock %}
