@@ -1,0 +1,15 @@
+<p>Волшебный шар</p>
+
+<img src="../static/img/{{ range(0, 30) | random }}.png" width=256 height=256>
+
+<div style="width: 300">
+	{% for k, v in oracle.items() %}
+		<p style="color:  #{{ oracle_color }}">{{ k }}: {{ v }}</p>
+	{% endfor %}
+</div>
+
+<hr width=300 align="left">
+
+<p>Количество полученных предсказаний: {{ prediction_counter }}</p>
+
+<button onClick="window.location.reload();">Еще предсказаний!</button>
