@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		{% for film in films %}
+			{{ loop.index }} - {{ film }} <br>
+		{% else %}
+			<span>Я не люблю фильмы</span>
+		{% endfor %}
+  </body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<table border="1">
+			{% for i in range(2, 10) %}
+				<tr>
+					{% for j in range(2, 10) %}
+						<td>{{ i }} * {{ j }} = {{ i * j }}</td>
+					{% endfor %}
+			  </tr>
+			{% endfor %}
+	  </table>
+	  {% for i in range(1,10,2) %}
+			<span>{{ i }} </span>
+		{% endfor %}
+    </body>
+</html>

@@ -1,0 +1,35 @@
+<!-- {% macro get_sum(x, y=0) %}
+	<p>{{ x }} + {{ y }} = {{ x + y }}</p>
+{% endmacro %} -->
+
+<!-- {% import "macros.html" as macros %} -->
+{% from "macros.html" import get_sum %}
+{% from "macros.html" import say_hello %}
+{% from "macros.html" import example %}
+{% from "macros.html" import get_factorial %}
+{% from "macros.html" import cake %}
+{% from 'variables.html' import author %}
+
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		{{ say_hello() }}
+		<!-- {{ macros.get_sum(5, 3, 10, 100) }}
+		{{ macros.get_sum(5, 3) }}
+		{{ macros.get_sum(5, 3, 10) }}
+		{{ macros.get_sum(5) }} -->
+		{{ get_sum(5, 3, 10, 100) }}
+		{{ get_sum(5, 3) }}
+		{{ get_sum(5, 3, 10) }}
+		{{ get_sum(5) }}
+
+		{{ example(1, 2, 3, a=4, b=5, c=6) }}
+		{{ get_factorial(5) }}
+		{{ cake('Мука', 'Сахар', 'Какао', 'Яйцо') }}
+		<p>Автор: {{ author }}</p>
+  </body>
+</html>

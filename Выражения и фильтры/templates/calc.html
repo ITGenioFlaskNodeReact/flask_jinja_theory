@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title>Калькулятор</title>
+	</head>
+	<body>
+    {% if operation == "plus" %}
+      <p>{{ a }} + {{ b }} = {{ a + b }}</p>
+    {% elif operation == "minus" %}
+      <p>{{ a }} - {{ b }} = {{ a - b }}</p>
+    {% elif operation == "divide" %}
+      {% if b == 0 %}
+        <p>Ой! На 0 делить нельзя!</p>
+      {% else %}
+        <p>{{ a }} / {{ b }} = {{ (a / b)|round(3) }}</p>
+      {% endif %}
+    {% elif operation == "multiply" %}
+      <p>{{ a }} * {{ b }} = {{ a * b }}</p>
+    {% endif %}
+  </body>
+</html>

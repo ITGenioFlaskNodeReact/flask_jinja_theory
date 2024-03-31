@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ol>
+			{% for student, grades in st_list %}
+				<li>
+					{{ student }}
+					<ul>
+						{% for key, val in grades.items() %}
+							<li>{{ loop.index }}) {{ key }} - {{ val }}</li>
+						{% else %}
+							<li>Нет оценок</li>
+						{% endfor %}
+					</ul>
+				</li>
+			{% endfor %}
+	  </ol>
+  </body>
+</html>

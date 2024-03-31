@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title>Example</title>
+	</head>
+	<body>
+		<!-- {% autoescape false %}
+		  <p>{{ text }}</p>
+		{% endautoescape %} -->
+		  {{ heading|safe }}
+		  <p>{{ text|safe }}</p>
+			<p>{{ danger }}</p>
+			<p>{{ task2|safe }}</p>
+  </body>
+</html>

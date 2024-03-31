@@ -1,0 +1,39 @@
+{% macro get_sum() %}
+	{% set sum = {'value': 0} %}
+
+	{% for arg in varargs %}
+		{% if sum.update({'value': sum.value + arg}) %}
+		{% endif %}
+	{% endfor %}
+
+	<p>{{varargs | join(' + ')}} = {{ sum.value }}</p>
+{% endmacro %}
+
+{% macro say_hello(name="Гость") %}
+	<h1>Привет, {{ name }}</h1>
+{% endmacro %}
+
+{% macro example() %}
+	<p>Это varargs {{ varargs }}</p>
+	<p>А это kwargs {{ kwargs }}</p>
+{% endmacro %}
+
+{% macro get_factorial(n) %}
+	{% set fact = {'value': 1} %}
+
+	{% for i in range(1, n+1) %}
+		{% if fact.update({'value': fact.value * i}) %}
+		{% endif %}
+	{% endfor %}
+
+	<p>{{n}}! = {{ fact.value }}</p>
+{% endmacro %}
+
+{% macro cake() %}
+	<h2>Состав пирога</h2>
+	<ul>
+		{% for item in varargs %}
+			<li>{{ item }}</li>		
+		{% endfor %}
+	</ul>
+{% endmacro %}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8">
+		<title>{{ title }}</title>
+	</head>
+	<body>
+		<p>Привет! Меня зовут {{ name }}.</p>
+    <p>Я программирую на Flask.</p>
+    <p>Количество мойх проектов: {{ count }}!</p>
+    <a href={{ url_for('change_count', new_count = count + 1) }}>+ </a>
+        {% if count > 0 %}
+            <a href={{ url_for('change_count', new_count = count - 1) }}>-</a>
+        {% endif %}
+        {% if count > 99 %}
+            <p>Я - профессиональный разработчик!</p>
+        {% elif count == 0 %}
+            <p>У меня нет проектов, но я над этим работаю</p>
+        {% else %}
+            <p>Я ещё не разработчик, я только учусь.</p>
+        {% endif %}
+	</body>
+</html>
