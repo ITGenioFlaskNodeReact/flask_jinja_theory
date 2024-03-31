@@ -1,0 +1,56 @@
+.world {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+}
+
+.cell {
+    padding: 5px;
+    background: whitesmoke;
+    width: 30px;
+    height: 30px;
+}
+
+.living-cell {
+    background: lightgreen;
+}
+
+.dead-cell {
+    background: darkred;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a, table {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.home {
+    top: 5%;
+    left: 45%;
+}
+
+.refresh {
+    top: 5%;
+    left: 55%;
+}
+
+.counter {
+    margin: 20px 3px 3px;
+    padding: 5px;
+    font-family: "Book Antiqua", "Arial";
+    background: aliceblue;
+    font-size: 30px;
+    border: 1px solid indigo;
+    border-radius: 50%;
+}
